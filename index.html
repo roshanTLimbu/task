@@ -1,0 +1,116 @@
+<!doctype html>
+
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<title>TASK - GeoNames APIs - PHP/CURL/AJAX/JSON</title>
+		<meta name="description" content="API task">
+		<meta name="author" content="Roshan Limbu">
+		<link rel="stylesheet" href="./libs/css/styles.css">
+
+	</head>
+
+	<body>
+
+		<div id="mainDiv">
+			<p id="test1"></p>
+			<table class="result_table">
+				<thead>
+				  <tr>
+					<th>API Name</th>
+					<th>API Description</th>
+					<th></th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+					<td>1. CountryCode</td>
+					<td>
+						<pre>CountryCode
+Webservice Type : REST
+Url : api.geonames.org/countryCode?
+Parameters : lat,lng, type, lang, radius (buffer in km for closest country in coastal areas, a positive buffer expands the positiv area whereas a negative buffer reduces it);
+Result : returns the iso country code for the given latitude/longitude
+With the parameter type=xml this service returns an xml document with iso country code and country name. The optional parameter lang can be used to specify the language the country name should be in. JSON output is produced with type=JSON
+Example http://api.geonames.org/countryCode?lat=47.03&lng=10.2&username=demo
+						</pre>
+						<label for="latCountryCode">Lattitude</label>
+						<input id="latCountryCode" name="latCountryCode" type="number" step="0.01" value="47.03">
+						<label for="lngCountryCode">Longitude</label>
+						<input id="lngCountryCode" name="lngCountryCode" type="number" step="0.01" value="10.2">
+					</td>
+					<td><button id="getCountryCodeRun">Run</button></td>
+				  </tr>
+
+				  <tr>
+					<td>2. Earthquakes</td>
+					<td>
+						<pre>Earthquakes
+Recent Earthquakes
+Webservice Type : REST
+Url : api.geonames.org/earthquakesJSON?
+Parameters :
+north,south,east,west : coordinates of bounding box
+callback : name of javascript function (optional parameter)
+date : date of earthquakes 'yyyy-MM-dd', optional parameter, earthquakes older or equal the given date sorted by date,magnitude
+minMagnitude : minimal magnitude, optional parameter
+maxRows : maximal number of rows returned (default = 10)
+
+Result : returns a list of earthquakes, ordered by magnitude
+
+Example http://api.geonames.org/earthquakesJSON?north=44.1&south=-9.9&east=-22.4&west=55.2&username=demo
+						</pre>
+						
+						<label for="northEarthquakes">North</label>
+						<input id="northEarthquakes" name="northEarthquakes" type="number" step="0.01" value="44.1">
+						<label for="southEarthquakes">South</label>
+						<input id="southEarthquakes" name="southEarthquakes" type="number" step="0.01" value="-9.9">
+						<label for="eastEarthquakes">East</label>
+						<input id="eastEarthquakes" name="eastEarthquakes" type="number" step="0.01" value="-22.4">
+						<label for="westEarthquakes">West</label>
+						<input id="westEarthquakes" name="westEarthquakes" type="number" step="0.01" value="55.2">
+
+					</td>
+					<td><button id="getEarthquakesRun">Run</button></td>
+				  </tr>
+
+				  <tr>
+					<td>3. Ocean</td>
+					<td>
+						<pre>
+The name of the ocean or sea.
+Webservice Type : REST
+Url : api.geonames.org/ocean?
+Parameters : lat,lng, radius (optional)
+Result : returns the ocean or sea for the given latitude/longitude
+The oceans returned by the service are listed here. Example http://api.geonames.org/ocean?lat=40.78343&lng=-43.96625&username=demo
+
+This service is also available in JSON format : api.geonames.org/oceanJSON?lat=40.78343&lng=-43.96625&username=demo
+						</pre>
+					<label for="latOcean">Lattitude</label>
+					<input id="latOcean" name="latOcean" type="number" step="0.01" value="40.78343">
+					<label for="lngOcean">Longitude</label>
+					<input id="lngOcean" name="lngOcean" type="number" step="0.01" value="-43.96625">
+					</td>
+					<td>
+						<button id="getOceanRun">Run</button>
+					</td>
+				  </tr>
+				  <tr>
+					  <td colspan="3">RESULT
+						<div id="resultDiv"></div>
+					  </td>
+				  </tr>
+				</tbody>
+			</table>
+
+		</div>
+
+		<script type="application/javascript" src="libs/js/jquery-2.2.3.min.js"></script>
+		<script type="application/javascript" src="libs/js/script.js"></script>
+
+	</body>
+
+</html>

@@ -1,0 +1,9 @@
+	.result_table {
+		border:#000000;
+	}
+	.result_table th {
+		border:#000000;
+	}
+	.result_table td {
+		border:#000000;
+	}
